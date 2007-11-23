@@ -35,4 +35,5 @@ namespace :backup do
   end
 end
 
+desc 'Backup the database and all assets by running the backup:db and backup:assets tasks.'
 task :backup => ["backup:db", "backup:assets"]
