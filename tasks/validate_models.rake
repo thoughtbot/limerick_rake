@@ -3,17 +3,25 @@ namespace :db do
   desc "Run model validations on all model records in database"
   task :validate_models => :environment do
     # because rails loads stuff on demand...
-    Dir.glob(RAILS_ROOT + '/app/models/**/*.rb').each { |file| require file }
-    Object.subclasses_of(ActiveRecord::Base).select { |c|
-          c.base_class == c}.sort_by(&:name).each do |klass|
+    Dir.glob(RAILS_ROOT + '/app/models/**/*.rb').each do |file| 
+      silence_warnings do
+        require file
+      end
+    end
+
+    Object.subclasses_of(ActiveRecord::Base).select { |c| c.base_class == c}.sort_by(&:name).each do |klass|
+      next if klass.name == "CGI::Session::ActiveRecordStore::Session"
+      invalid_count = 0
       total = klass.count
       chunk_size = 1000
       (total / chunk_size + 1).times do |i|
         chunk = klass.find(:all, :offset => (i * chunk_size), :limit => chunk_size)
         chunk.reject(&:valid?).each do |record|
-          puts "  #{klass.name}##{record.id}: #{record.errors.full_messages.join('; ')}"
+          invalid_count += 1
+          puts "#{klass} #{record.id}: #{record.errors.full_messages.to_sentence}"
         end rescue nil
       end
+      puts "#{invalid_count} of #{total} #{klass.name.pluralize} are invalid." if invalid_count > 0
     end
   end
 end
