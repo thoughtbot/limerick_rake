@@ -3,18 +3,27 @@ Limerick Rake
 
 A collection of useful rake tasks.
 
+h2. Database
+
+Read tasks/database.rake for details for configuration.
+
+* rake db:indexes:missing - Prints a list of unindexed foreign keys so you can index them.
+* rake db:shell - Launches the database shell using the values defined in config/database.yml.
+
+h2. Git
+
+* rake git:push:staging - Merge a branch into the origin/staging branch.
+* rake git:push:production - Merge the staging branch into origin/production for launch.
+* rake git:diff:staging - Show the difference between current branch and origin/staging.
+* rake git:diff:production - Show the difference between origin/staging and origin/production.
+* rake git:pull:suspenders - Pull updates from suspenders, the thoughtbot rails template.
+* rake git:branch:production - Branch origin/production into BRANCH locally.
+
 h2. Haml & Sass
 
 * rake sass:all_css2sass - Convert all CSS files in public/stylesheets to Sass.
 * rake sass:all_sass2css - Convert all Sass files to CSS.
 * rake haml:all_html2haml - Convert all HTML files to Haml.
-
-h2. MySQL Database
-
-Read tasks/database.rake for details for configuration.
-
-* rake db:database_dump - Dump the current database to a MySQL file.
-* rake db:production\_data\_refresh - Refreshes your local development environment to the current production database.
 
 h2. Subversion
 

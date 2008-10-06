@@ -112,8 +112,8 @@ namespace :git do
   end
  
   namespace :pull do
-    desc "Pull updates from the thoughtbot rails template"
-    task :template do
+    desc "Pull updates from suspenders, the thoughtbot rails template."
+    task :suspenders do
       GitCommands.pull_template
     end
   end
