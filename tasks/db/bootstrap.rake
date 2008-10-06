@@ -3,7 +3,7 @@ namespace :db do
   task :bootstrap => ['db:schema:load', 'db:bootstrap:load']
 
   namespace :bootstrap do
-    desc "Load initial database fixtures (in db/bootstrap/*.yml) into the current environment's database.  Load specific fixtures using FIXTURES=x,y"
+    desc "Load initial database fixtures (in db/bootstrap/*.yml) into the current environment's database. Load specific fixtures using FIXTURES=x,y"
     task :load => :environment do
       require 'active_record/fixtures'
       ActiveRecord::Base.establish_connection(RAILS_ENV.to_sym)

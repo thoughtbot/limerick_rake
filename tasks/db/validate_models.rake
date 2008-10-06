@@ -1,5 +1,5 @@
-# From http://blog.hasmanythrough.com/2006/8/27/validate-all-your-records
 namespace :db do
+  # From http://blog.hasmanythrough.com/2006/8/27/validate-all-your-records
   desc "Run model validations on all model records in database"
   task :validate_models => :environment do
     # because rails loads stuff on demand...
@@ -8,7 +8,7 @@ namespace :db do
         require file
       end
     end
-
+  
     Object.subclasses_of(ActiveRecord::Base).select { |c| c.base_class == c}.sort_by(&:name).each do |klass|
       next if klass.name == "CGI::Session::ActiveRecordStore::Session"
       invalid_count = 0
@@ -25,4 +25,3 @@ namespace :db do
     end
   end
 end
-
