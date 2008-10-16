@@ -88,7 +88,7 @@ namespace :git do
   namespace :push do
     desc "Merge a branch into the origin/staging branch."
     task :staging do
-      branch = ENV['BRANCH'].blank? ? GitCommands.current_branch : ENV['BRANCH']
+      branch = ENV['BRANCH'].nil? ? GitCommands.current_branch : ENV['BRANCH']
       puts "Tagging #{branch} as origin/staging"
       GitCommands.push_staging(branch)
     end
@@ -121,7 +121,7 @@ namespace :git do
   namespace :branch do
     desc "Branch origin/production into BRANCH locally."
     task :production do
-      branch = ENV['BRANCH'].blank? ? GitCommands.current_branch : ENV['BRANCH']
+      branch = ENV['BRANCH'].nil? ? GitCommands.current_branch : ENV['BRANCH']
       puts "Branching origin/production into #{branch}"
       GitCommands.branch_production(branch)
     end
