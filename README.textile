@@ -49,8 +49,15 @@ h2. Subversion
 
 h2. Test Coverage
 
-rake test:coverage - Uses rcov to provide reports about test coverage of your application. 
-                     Install the rcov from http://github.com/mergulhao/rcov
+Install rcov from http://github.com/mergulhao/rcov
+
+* rake test:coverage - Uses rcov to provide reports about test coverage of your application. 
+
+h2. Mass Assignment
+
+From "mhartl":http://github.com/mhartl/find_mass_assignment
+
+* rake find_mass_assignment
 
 The Limerick Rake
 =================
