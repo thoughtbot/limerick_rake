@@ -34,15 +34,14 @@ module GitCommands
     puts run("git diff origin/staging origin/production")
   end
  
-  def self.push_staging(branch)
-    raise "Branch must not be blank" if branch.blank?
+  def self.push_staging
     raise "origin/staging branch does not exist" unless remote_branch_exists?("origin/staging")
     ensure_clean_working_directory!
     begin
       run "git fetch"
       run "git branch -f staging origin/staging"
       run "git checkout staging"
-      run "git pull . #{branch}"
+      run "git pull origin master"
       run "git push origin staging"
     rescue
       puts "Creating staging tag failed."
@@ -86,14 +85,12 @@ end
  
 namespace :git do
   namespace :push do
-    desc "Merge a branch into the origin/staging branch."
+    desc "Merge origin/master into the origin/staging branch."
     task :staging do
-      branch = ENV['BRANCH'].blank? ? GitCommands.current_branch : ENV['BRANCH']
-      puts "Tagging #{branch} as origin/staging"
-      GitCommands.push_staging(branch)
+      GitCommands.push_staging
     end
  
-    desc "Merge the staging branch into origin/production for launch."
+    desc "Merge origin/staging branch into origin/production for launch."
     task :production do
       GitCommands.push_production
     end
