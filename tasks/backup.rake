@@ -12,6 +12,7 @@ namespace :backup do
     options   =  "-e -u #{config['username']}"
     options   += " -p'#{config['password']}'" if config['password']
     options   += " -h #{config['host']}"      if config['host']
+    options   += " -S #{config['socket']}"    if config['socket']
 
     raise RuntimeError, "I only work with mysql." unless config['adapter'] == 'mysql'
     raise RuntimeError, "Cannot find mysqldump." if mysqldump.blank?
