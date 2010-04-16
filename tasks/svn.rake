@@ -9,8 +9,8 @@ namespace :svn do
   
   desc "Writes the log file to doc/svn_log.txt"
   task(:log) do
-    File.delete("#{RAILS_ROOT}/doc/svn_log.txt") if File::exists?("#{RAILS_ROOT}/doc/svn_log.txt")
-    File.new("#{RAILS_ROOT}/doc/svn_log.txt", "w+")
+    File.delete("#{Rails.root}/doc/svn_log.txt") if File::exists?("#{Rails.root}/doc/svn_log.txt")
+    File.new("#{Rails.root}/doc/svn_log.txt", "w+")
     system("svn log >> doc/svn_log.txt")
   end
   

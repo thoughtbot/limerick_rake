@@ -38,7 +38,7 @@ class String
   # Note that 'attr_accessible' must be preceded by nothing other than
   # whitespace; this catches cases where attr_accessible is commented out.
   def attr_accessible?
-    model = "#{RAILS_ROOT}/app/models/#{self.classify}.rb"
+    model = "#{Rails.root}/app/models/#{self.classify}.rb"
     if File.exist?(model)
       return @@cache[model] unless @@cache[model].nil?
       @@cache[model] = File.open(model).read =~ /^\s*attr_accessible/
@@ -80,7 +80,7 @@ module MassAssignment
   end
  
   def self.find
-    controllers = Dir.glob("#{RAILS_ROOT}/app/controllers/*_controller.rb")
+    controllers = Dir.glob("#{Rails.root}/app/controllers/*_controller.rb")
     controllers.each do |controller|
       if controller.mass_assignment_problem?
         puts "\n#{controller}"

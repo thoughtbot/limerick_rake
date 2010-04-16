@@ -1,7 +1,7 @@
 namespace :db do
   desc 'Launches the database shell using the values defined in config/database.yml'
   task :shell => :environment do
-    config = ActiveRecord::Base.configurations[RAILS_ENV || 'development']
+    config = ActiveRecord::Base.configurations[Rails.env || 'development']
     command = ""
 
     case config['adapter']
