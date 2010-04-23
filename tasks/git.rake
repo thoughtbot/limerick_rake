@@ -18,7 +18,7 @@ module GitCommands
   end
  
   def self.remote_branch_exists?(branch)
-    ! run("git branch -r --no-color | grep '#{branch}'").blank?
+    ! run("git branch -r --no-color | grep '#{branch}'").empty?
   end
  
   def self.ensure_clean_working_directory!
