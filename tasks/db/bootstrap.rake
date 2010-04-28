@@ -7,7 +7,7 @@ namespace :db do
     task :load => :environment do
       require 'active_record/fixtures'
       ActiveRecord::Base.establish_connection(Rails.env.to_sym)
-      (ENV['FIXTURES'] ? ENV['FIXTURES'].split(/,/) : Dir.glob(File.join(Rails.root, 'db', 'bootstrap', '*.{yml,csv}'))).each do |fixture_file|
+      (ENV['FIXTURES'] ? ENV['FIXTURES'].split(/,/) : Dir.glob(File.join(Rails.root.to_s, 'db', 'bootstrap', '*.{yml,csv}'))).each do |fixture_file|
         Fixtures.create_fixtures('db/bootstrap', File.basename(fixture_file, '.*'))
       end
     end

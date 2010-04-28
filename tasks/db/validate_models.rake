@@ -3,7 +3,7 @@ namespace :db do
   desc "Run model validations on all model records in database"
   task :validate_models => :environment do
     # because rails loads stuff on demand...
-    Dir.glob(Rails.root + '/app/models/**/*.rb').each do |file| 
+    Dir.glob(Rails.root.to_s + '/app/models/**/*.rb').each do |file| 
       silence_warnings do
         require file
       end
