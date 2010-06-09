@@ -8,13 +8,15 @@ Gem::Specification.new do |s|
   s.description = "A collection of useful rake tasks."
   s.authors = ["the Ruby community", "thoughtbot, inc."]
   s.files = ["README.textile",
+    "MIT-LICENSE",
     "limerick_rake.gemspec",
-    "tasks/backup.rake",
-    "tasks/db/bootstrap.rake",
-    "tasks/db/indexes.rake",
-    "tasks/db/shell.rake",
-    "tasks/db/validate_models.rake",
-    "tasks/git.rake",
-    "tasks/haml_sass.rake",
-    "tasks/svn.rake"]
+    "lib/tasks/backup.rake",
+    "lib/tasks/db/bootstrap.rake",
+    "lib/tasks/db/indexes.rake",
+    "lib/tasks/db/shell.rake",
+    "lib/tasks/db/validate_models.rake",
+    "lib/tasks/git.rake",
+    "lib/tasks/haml_sass.rake",
+    "lib/tasks/svn.rake"
+  ]
 end

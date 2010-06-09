@@ -8,7 +8,7 @@ namespace :db do
         require file
       end
     end
-  
+
     Object.subclasses_of(ActiveRecord::Base).select { |c| c.base_class == c}.sort_by(&:name).each do |klass|
       next if klass.name == "CGI::Session::ActiveRecordStore::Session"
       invalid_count = 0
