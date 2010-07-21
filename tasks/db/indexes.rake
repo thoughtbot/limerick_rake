@@ -14,7 +14,7 @@ namespace :db do
         end
       end
       puts "Foreign Keys:" 
-      indexes.each do |table, columns|
+      indexes.sort.each do |table, columns|
         puts columns.map { |c| "\s\sadd_index '#{table}', '#{c}'\n"}
       end
     end
