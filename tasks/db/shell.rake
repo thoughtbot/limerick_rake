@@ -13,11 +13,18 @@ namespace :db do
       command << "--password=#{config['password'] || ''} "
       command << config['database']
     when 'postgresql'
-      puts 'You should consider switching to MySQL or get off your butt and submit a patch'    
+      command << "psql "
+      command << "-h #{config['host']} " unless config['host'].blank?
+      command << "-p #{config['port']} " unless config['port'].blank?
+      command << "-U #{config['username']} " unless config['username'].blank?
+      if config['password'].blank?
+        command << "#{config['database']}"
+      else
+        command << "\"dbname=#{config['database']} password=#{config['password']}\""
+      end
     else
       command << "echo Unsupported database adapter: #{config['adapter']}"
     end
-
     system command
   end
 end
