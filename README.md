@@ -5,64 +5,72 @@ A collection of useful rake tasks.
 
 To use in a Rails app:
 
-  $ ruby script/plugin install -f git://github.com/thoughtbot/limerick_rake.git
+    ruby script/plugin install -f git://github.com/thoughtbot/limerick_rake.git
 
-h2. Database
+Database
+--------
 
 Read tasks/database.rake for details for configuration.
 
-* rake db:bootstrap:load - Load initial database fixtures (in db/bootstrap/*.yml) into the current environment's database. Load specific fixtures using FIXTURES=x,y
-* rake db:indexes:missing - Prints a list of unindexed foreign keys so you can index them.
-* rake db:shell - Launches the database shell using the values defined in config/database.yml.
-* rake db:validate_models - Run model validations on all model records in database.
+    rake db:bootstrap:load    # Load initial database fixtures (in db/bootstrap/*.yml) into the current environment's database. Load specific fixtures using FIXTURES=x,y
+    rake db:indexes:missing   # Prints a list of unindexed foreign keys so you can index them.
+    rake db:shell             # Launches the database shell using the values defined in config/database.yml.
+    rake db:validate_models   # Run model validations on all model records in database.
 
-h2. Git
+Git
+---
 
-* rake git:push:staging - Merge a branch into the origin/staging branch.
-* rake git:push:production - Merge the staging branch into origin/production for launch.
-* rake git:diff:staging - Show the difference between current branch and origin/staging.
-* rake git:diff:production - Show the difference between origin/staging and origin/production.
-* rake git:pull:suspenders - Pull updates from suspenders, the thoughtbot rails template.
-* rake git:branch:production - Branch origin/production into BRANCH locally.
+    rake git:push:staging       # Merge a branch into the origin/staging branch.
+    rake git:push:production    # Merge the staging branch into origin/production for launch.
+    rake git:diff:staging       # Show the difference between current branch and origin/staging.
+    rake git:diff:production    # Show the difference between origin/staging and origin/production.
+    rake git:pull:suspenders    # Pull updates from suspenders, the thoughtbot rails template.
+    rake git:branch:production  #Branch origin/production into BRANCH locally.
 
-h2. Backup
+Backup
+------
 
-* rake backup:db - Backup the current database. Timestamped file is created as :rails_root/../db-name-timestamp.sql
-* rake backup:assets - Backup all assets under public/system. File is created as :rails_root/../system.tgz
+    rake backup:db      # Backup the current database. Timestamped file is created as :rails_root/../db-name-timestamp.sql
+    rake backup:assets  # Backup all assets under public/system. File is created as :rails_root/../system.tgz
 
-h2. Haml & Sass
+Haml & Sass
+-----------
 
-* rake sass:all_css2sass - Convert all CSS files in public/stylesheets to Sass.
-* rake sass:all_sass2css - Convert all Sass files to CSS.
-* rake haml:all_html2haml - Convert all HTML files to Haml.
+    rake sass:all_css2sass    # Convert all CSS files in public/stylesheets to Sass.
+    rake sass:all_sass2css    # Convert all Sass files to CSS.
+    rake haml:all_html2haml   # Convert all HTML files to Haml.
 
-h2. Rails 2+
+Rails 2+
+--------
 
-* rake rails_two:rename_views - Renames all .rhtml views to .html.erb, .rjs to .js.rjs, .rxml to .xml.builder and .haml to .html.haml.
+    rake rails_two:rename_views   # Renames all .rhtml views to .html.erb, .rjs to .js.rjs, .rxml to .xml.builder and .haml to .html.haml.
 
-h2. Subversion
+Subversion
+----------
 
-* rake svn:add - Adds all files with an svn status flag of '?'
-* rake svn:delete - Deletes all files with an svn status flag of '!'
-* rake svn:log - Writes the log file to doc/svn_log.txt
-* rake svn:update\_svn\_ignore - Updates svn:ignore from .svnignore
+    rake svn:add                    # Adds all files with an svn status flag of '?'
+    rake svn:delete                 # Deletes all files with an svn status flag of '!'
+    rake svn:log                    # Writes the log file to doc/svn_log.txt
+    rake svn:update\_svn\_ignore    # Updates svn:ignore from .svnignore
 
-h2. Test Coverage
+Test Coverage
+-------------
 
 Install rcov from http://github.com/mergulhao/rcov
 
-* rake test:coverage - Uses rcov to provide reports about test coverage of your application. 
+    rake test:coverage  # Uses rcov to provide reports about test coverage of your application. 
 
-h2. Mass Assignment
+Mass Assignment
+---------------
 
 From "mhartl":http://github.com/mhartl/find_mass_assignment
 
-* rake find_mass_assignment
+    rake find_mass_assignment
 
 The Limerick Rake
 =================
 
-Traditional Irish song. "YouTube":http://www.youtube.com/v/e8moLHIW8xw
+Traditional Irish song. [YouTube](http://www.youtube.com/v/e8moLHIW8xw)
 
     I am a young fellow that's easy and bold,
     In Castletown conners I'm very well known.
@@ -134,7 +142,18 @@ Traditional Irish song. "YouTube":http://www.youtube.com/v/e8moLHIW8xw
     And their sons and their daughters will offer their prayer,
     To the Lord for the soul of their father.
 
+Credits
+-------
+
+![thoughtbot](http://thoughtbot.com/images/tm/logo.png)
+
+Limerick Rake is maintained and funded by [thoughtbot, inc](http://thoughtbot.com/community)
+
+Thank you to all [the contributors](https://github.com/thoughtbot/limerick_rake/contributors)!
+
+The names and logos for thoughtbot are trademarks of thoughtbot, inc.
+
 License
 -------
 
-MIT License, under the same terms as Ruby.
+Limerick Rake is Copyright © 2008-2011 thoughtbot. It is free software, and may be redistributed under the terms specified in the LICENSE file.
