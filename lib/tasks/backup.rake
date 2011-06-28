@@ -16,7 +16,7 @@ namespace :backup do
 
     raise RuntimeError, "I only work with mysql." unless config['adapter'] == 'mysql'
     raise RuntimeError, "Cannot find mysqldump." if mysqldump.blank?
-    
+
     FileUtils.mkdir_p backupdir
     `#{mysqldump} #{options} #{config['database']} > #{filepath}`
     puts "#{config['database']} => #{filepath}"

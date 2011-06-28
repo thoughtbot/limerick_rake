@@ -14,14 +14,10 @@ namespace :db do
       command << config['database']
     when 'postgresql'
       command << "psql "
-      command << "-h #{config['host']} " unless config['host'].blank?
-      command << "-p #{config['port']} " unless config['port'].blank?
-      command << "-U #{config['username']} " unless config['username'].blank?
-      if config['password'].blank?
-        command << "#{config['database']}"
-      else
-        command << "\"dbname=#{config['database']} password=#{config['password']}\""
-      end
+      command << "-h #{config['host'] || 'localhost'} "
+      command << "-p #{config['port'] || 5432} "
+      command << "-U #{config['username'] || 'postgres'} "
+      command << "\"dbname=#{config['database']} password=#{config['password']}\""
     else
       command << "echo Unsupported database adapter: #{config['adapter']}"
     end

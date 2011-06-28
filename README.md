@@ -3,19 +3,20 @@ Limerick Rake
 
 A collection of useful rake tasks.
 
-To use in a Rails app:
+To use in a Rails app, in your Gemfile:
 
-    ruby script/plugin install -f git://github.com/thoughtbot/limerick_rake.git
+  gem 'limerick_rake'
 
 Database
 --------
 
 Read tasks/database.rake for details for configuration.
 
-    rake db:bootstrap:load    # Load initial database fixtures (in db/bootstrap/*.yml) into the current environment's database. Load specific fixtures using FIXTURES=x,y
-    rake db:indexes:missing   # Prints a list of unindexed foreign keys so you can index them.
-    rake db:shell             # Launches the database shell using the values defined in config/database.yml.
-    rake db:validate_models   # Run model validations on all model records in database.
+* rake db:bootstrap:load - Load initial database fixtures (in db/bootstrap/*.yml) into the current environment's database. Load specific fixtures using FIXTURES=x,y
+* rake db:indexes:missing - Prints a list of unindexed foreign keys so you can index them.
+* rake db:shell - Launches the database shell using the values defined in config/database.yml.
+* rake db:validate_models - Run model validations on all model records in database.
+* rake db:recreate - Recreate database with seeds (drop, create, migrate and seed)
 
 Git
 ---

@@ -39,7 +39,7 @@ namespace :sass do
       convert_sass_to_css basename
     end
   end
-  
+
   desc "Convert all Sass files to CSS."
   task :all_sass2css => :environment do
     files = Dir.entries(@sass_dir).find_all do |f| 
@@ -65,7 +65,7 @@ namespace :haml do
     controllers.each do |controller|
       files = Dir.entries("#{@views_dir}/#{controller}").find_all do |f|
         (File.new("#{@views_dir}/#{controller}/#{f}").path.include?(".html.erb") ||
-         File.new("#{@views_dir}/#{controller}/#{f}").path.include?(".rhtml")) &&
+        File.new("#{@views_dir}/#{controller}/#{f}").path.include?(".rhtml")) &&
         File.basename("#{@views_dir}/#{controller}/#{f}") !~ /^[.]/
       end
       files.each do |filename|
@@ -75,4 +75,3 @@ namespace :haml do
     end
   end
 end
-
