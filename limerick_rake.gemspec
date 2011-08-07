@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/thoughtbot/limerick_rake"
   s.description = "A collection of useful rake tasks."
   s.authors = ["the Ruby community", "thoughtbot, inc."]
-  s.files = ["README.textile",
+  s.files = ["README.md",
     "MIT-LICENSE",
     "limerick_rake.gemspec",
     "lib/tasks/backup.rake",
