@@ -1,22 +1,19 @@
+# -*- encoding: utf-8 -*-
+$:.push File.expand_path("../lib", __FILE__)
+require "limerick_rake/version"
+
 Gem::Specification.new do |s|
-  s.name = "limerick_rake"
-  s.version = "0.0.2"
-  s.date = "2008-10-07"
-  s.summary = "A collection of useful rake tasks."
-  s.email = "support@thoughtbot.com"
-  s.homepage = "http://github.com/thoughtbot/limerick_rake"
+  s.name        = "limerick_rake"
+  s.version     = LimerickRake::VERSION.dup
+  s.platform    = Gem::Platform::RUBY
+  s.authors     = ["the Ruby community", "thoughtbot, inc."]
+  s.email       = "support@thoughtbot.com"
+  s.homepage    = "http://github.com/thoughtbot/limerick_rake"
+  s.summary     = "A collection of useful rake tasks."
   s.description = "A collection of useful rake tasks."
-  s.authors = ["the Ruby community", "thoughtbot, inc."]
-  s.files = ["README.md",
-    "MIT-LICENSE",
-    "limerick_rake.gemspec",
-    "lib/tasks/backup.rake",
-    "lib/tasks/db/bootstrap.rake",
-    "lib/tasks/db/indexes.rake",
-    "lib/tasks/db/shell.rake",
-    "lib/tasks/db/validate_models.rake",
-    "lib/tasks/git.rake",
-    "lib/tasks/haml_sass.rake",
-    "lib/tasks/svn.rake"
-  ]
+
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.require_paths = ["lib"]
 end
