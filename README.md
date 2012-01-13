@@ -5,7 +5,13 @@ A collection of useful rake tasks.
 
 To use in a Rails app, in your Gemfile:
 
-  gem 'limerick_rake'
+    gem 'limerick_rake'
+
+DEPRECATED
+----------
+
+We no longer use `limerick_rake`, and as such no longer maintain it. If you
+wish to take over the project please email <support@thoughtbot.com>.
 
 Database
 --------
